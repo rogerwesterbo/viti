@@ -1,0 +1,18 @@
+{
+  "name": "viti",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "slidev --open",
+    "build": "slidev build",
+    "export": "slidev export"
+  },
+  "dependencies": {
+    "@slidev/cli": "^53.0.0",
+    "@slidev/theme-default": "latest",
+    "vue": "^3.5.44"
+  },
+  "devDependencies": {
+    "playwright-chromium": "1.64.0"
+  }
+}

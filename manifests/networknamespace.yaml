@@ -1,0 +1,10 @@
+apiVersion: vitistack.io/v1alpha2
+kind: NetworkNamespace
+metadata:
+  name: dev-net-001
+spec:
+  ipAllocation:
+    provider: static-ip-operator
+    type: static
+  networkProvisioning:
+    provider: nam # custom network provisioner

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-10 -10 1100 760">
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M0 0L10 5L0 10" fill="none" stroke="#cbd5e1" stroke-width="1.5"/></marker></defs>
+<rect x="10" y="10" width="620" height="305" rx="14" fill="#0f172a" stroke="#cbd5e1" stroke-width="2"/>
+<rect x="35" y="30" width="195" height="55" rx="14" fill="#1e3a5f" stroke="#cbd5e1" stroke-width="2"/>
+<text x="132.5" y="63" font-size="17" font-family="Comic Sans MS, Segoe Print, sans-serif" fill="#e2e8f0" text-anchor="middle">Vitistack-operator</text>
+<rect x="430" y="30" width="195" height="55" rx="14" fill="#2e2a5a" stroke="#cbd5e1" stroke-width="2"/>
+<text x="527.5" y="63" font-size="17" font-family="Comic Sans MS, Segoe Print, sans-serif" fill="#e2e8f0" text-anchor="middle">aks-operator</text>
+<rect x="475" y="125" width="135" height="85" rx="14" fill="#1e293b" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="2 5"/>
+<text x="542.5" y="173" font-size="17" font-family="Comic Sans MS, Segoe Print, sans-serif" fill="#e2e8f0" text-anchor="middle">Kubevirt</text>
+<rect x="25" y="237" width="195" height="60" rx="14" fill="#4a2f14" stroke="#cbd5e1" stroke-width="2"/>
+<text x="122.5" y="273" font-size="17" font-family="Comic Sans MS, Segoe Print, sans-serif" fill="#e2e8f0" text-anchor="middle">Proxmox-operator</text>
+<rect x="228" y="237" width="195" height="60" rx="14" fill="#4a3f12" stroke="#cbd5e1" stroke-width="2"/>
+<text x="325.5" y="273" font-size="17" font-family="Comic Sans MS, Segoe Print, sans-serif" fill="#e2e8f0" text-anchor="middle">Talos-operator</text>
+<rect x="432" y="237" width="195" height="60" rx="14" fill="#1a3d2b" stroke="#cbd5e1" stroke-width="2"/>
+<text x="529.5" y="273" font-size="17" font-family="Comic Sans MS, Segoe Print, sans-serif" fill="#e2e8f0" text-anchor="middle">Kubevirt-operator</text>
+<rect x="815" y="105" width="255" height="125" rx="14" fill="#0f2235" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="8 6"/>
+<text x="942.5" y="173" font-size="17" font-family="Comic Sans MS, Segoe Print, sans-serif" fill="#e2e8f0" text-anchor="middle">Azure</text>
+<rect x="45" y="465" width="410" height="255" rx="14" fill="#1e293b" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="8 6"/>
+<rect x="15" y="480" width="425" height="245" rx="14" fill="#2a1d0f" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="8 6"/>
+<rect x="560" y="405" width="420" height="265" rx="14" fill="#1e293b" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="8 6"/>
+<rect x="535" y="425" width="420" height="265" rx="14" fill="#10261a" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="8 6"/>
+<rect x="110" y="515" width="195" height="60" rx="14" fill="#1e293b" stroke="#cbd5e1" stroke-width="2"/>
+<rect x="114" y="519" width="187" height="52" rx="10" fill="none" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="207.5" y="541" font-size="17" font-family="Comic Sans MS, Segoe Print, sans-serif" fill="#e2e8f0" text-anchor="middle">Vitistack Machines</text>
+<text x="207.5" y="561" font-size="17" font-family="Comic Sans MS, Segoe Print, sans-serif" fill="#e2e8f0" text-anchor="middle">/ K8s Nodes</text>
+<rect x="627" y="477" width="205" height="60" rx="14" fill="#1e293b" stroke="#cbd5e1" stroke-width="2"/>
+<rect x="631" y="481" width="197" height="52" rx="10" fill="none" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="729.5" y="503" font-size="17" font-family="Comic Sans MS, Segoe Print, sans-serif" fill="#e2e8f0" text-anchor="middle">Vitistack Machines</text>
+<text x="729.5" y="523" font-size="17" font-family="Comic Sans MS, Segoe Print, sans-serif" fill="#e2e8f0" text-anchor="middle">/ K8s Nodes</text>
+<text x="320" y="166" font-size="18" font-family="Comic Sans MS, Segoe Print, sans-serif" fill="#e2e8f0" text-anchor="middle">Management cluster</text>
+<text x="210" y="616" font-size="16" font-family="Comic Sans MS, Segoe Print, sans-serif" fill="#e2e8f0" text-anchor="middle">Proxmox instance(s)</text>
+<text x="745" y="571" font-size="16" font-family="Comic Sans MS, Segoe Print, sans-serif" fill="#e2e8f0" text-anchor="middle">Kubevirt cluster(s)</text>
+<line x1="628" y1="58" x2="812" y2="140" stroke="#cbd5e1" stroke-width="2" marker-end="url(#ah)"/>
+<line x1="130" y1="297" x2="130" y2="478" stroke="#cbd5e1" stroke-width="2" marker-end="url(#ah)"/>
+<line x1="548" y1="297" x2="640" y2="422" stroke="#cbd5e1" stroke-width="2" marker-end="url(#ah)"/>
+<path d="M627 250 Q705 185 612 132" fill="none" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="2 5" stroke-linecap="round"/>
+</svg>

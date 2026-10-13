@@ -1,0 +1,62 @@
+apiVersion: vitistack.io/v1alpha1
+kind: KubernetesCluster
+metadata:
+  name: supercluster
+spec:
+  data:
+    clusterId: supercluster-1337
+    clusterUid: ce660a80-054e-419f-b22c-b6c66a9710bd
+    datacenter: no-south-az1
+    environment: dev
+    networkNamespaceName: dev-net-001
+    project: simple-project
+    provider: talos
+    region: south
+    workorder: simple-workorder
+    workspace: simple-workspace
+    zone: az1
+  topology:
+    controlplane:
+      architecture: amd64
+      machineClass: small
+      metadata:
+        annotations:
+          environment: development
+          region: south
+        labels:
+          environment: development
+          region: south
+      provider: kubevirt
+      replicas: 1
+      storage:
+      - class: standard
+        path: /var/lib/vitistack/kubevirt
+        size: 20Gi
+      version: 1.36.5
+    version: 1.36.5
+    workers:
+      nodePools:
+      - architecture: amd64
+        autoscaling:
+          enabled: false
+          maxReplicas: 5
+          minReplicas: 1
+          scalingRules:
+          - cpu
+        machineClass: medium
+        metadata:
+          annotations:
+            environment: development
+            region: south
+          labels:
+            environment: development
+            region: south
+        name: wp
+        provider: kubevirt
+        replicas: 1
+        storage:
+        - class: standard
+          path: /var/lib/vitistack/kubevirt
+          size: 20Gi
+        taint: []
+        version: 1.36.5
