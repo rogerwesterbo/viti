@@ -542,7 +542,7 @@ But also home lab:
 <v-clicks>
 
 - 👍 Clusters as YAML → GitOps, review, repeatability
-- 👍 Pluggable providers — swap KubeVirt / Proxmox / physical
+- 👍 Pluggable providers — swap KubeVirt / Proxmox
 - 👍 Talos: immutable, API-driven nodes
 - 👍 Scales fast
 - 🤔 Lessons learned …
