@@ -1,0 +1,14 @@
+apiVersion: v2
+name: viti
+description: Vitistack presentation (Slidev) served as a static site by unprivileged nginx
+type: application
+home: https://github.com/rogerwesterbo/viti
+sources:
+  - https://github.com/rogerwesterbo/viti
+keywords:
+  - vitistack
+  - slidev
+  - presentation
+# version and appVersion are overwritten from the git tag by the release workflow
+version: 0.1.0
+appVersion: "0.1.0"
