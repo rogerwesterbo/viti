@@ -31,10 +31,12 @@ lineNumbers: false
 
 <!--
 Overview: who I am, what we'll cover today.
+- Why was Vitistack built
 - What Vitistack is
 - Operators and the control loop
 - Creating a cluster: NetworkNamespace + KubernetesCluster
 - Demo / diagram, experiences, future
+- Questions
 -->
 
 ---
@@ -48,9 +50,10 @@ Overview: who I am, what we'll cover today.
 
 - 🏗️ An **infrastructure platform** for running Kubernetes with many machine-providers and kubernetes-providers
 - 📜 Kubernetes clusters as **declarative resources** (CRDs)
+- 📦 General objects describing the environment and config of a platform
 - 🤖 Built from **operators** — each does one job well
 - 🔓 Open source building blocks
-- 🎯 Goals: cost-efficiency, flexibility, security, interoperability, customizable
+- 🎯 Goals: cost-efficient, flexible, secure, interoperability, customizable, see what happens in the "magic" box
 
 </v-clicks>
 
@@ -61,12 +64,12 @@ Overview: who I am, what we'll cover today.
 
 ### 🧱 Building blocks
 
-| Area | Examples |
-|---|---|
-| <K8sLogo /> Kubernetes | **Talos**, **AKS**, K0s, Scaleway,etc |
-| 🖥️ Machines | **KubeVirt**, **Proxmox**,  (future Physical) |
-| 🌐 Network / IP | **Static IP**, **Kea**, **Custom** |
-| 💾 Storage | **Ceph**, Longhorn, etc |
+| _Area_                 | _Examples_                                   |
+| ---------------------- | -------------------------------------------- |
+| <K8sLogo /> Kubernetes | **Talos**, **AKS**, K0s, Scaleway,etc        |
+| 🖥️ Machines            | **KubeVirt**, **Proxmox**, (future Physical) |
+| 🌐 Network / IP        | **Static IP**, **Kea**, **Custom**           |
+| 💾 Storage             | **Ceph**, Longhorn, etc                      |
 
 </v-click>
 
@@ -74,6 +77,8 @@ Overview: who I am, what we'll cover today.
 </div>
 
 <!--
+Why was Vitistack built?! A trillion-dollar chipmaker buying the dominant enterprise hypervisor company, with a Kubernetes platform included, wanted more money and less features to the users
+
 Key point: you describe WHAT you want (a cluster), the platform figures out HOW.
 Everything is a Kubernetes resource -> GitOps, kubectl, RBAC all just work.
 CRDs: Vitistack, Machine, MachineClass, MachineProvider, KubernetesProvider,
@@ -132,7 +137,23 @@ layout: section
 
 # How to create a cluster 🛠️
 
-🌐 `NetworkNamespace` → <K8sLogo /> `KubernetesCluster`
+<v-clicks>
+
+<div>
+
+🌐 `NetworkNamespace`
+
+</div>
+
+↓
+
+<div>
+
+<K8sLogo /> `KubernetesCluster`
+
+</div>
+
+</v-clicks>
 
 ---
 
@@ -183,9 +204,7 @@ spec:
   </div>
 </div>
 
-
 </div>
-
 
 <style>
 .nn-item {
@@ -205,9 +224,6 @@ spec:
   from { opacity: 0; transform: translateX(12px); }
 }
 </style>
-
-
-
 
 ---
 
@@ -277,42 +293,42 @@ spec:
 <div class="relative" :class="{ 'z-20': $clicks === 1 || $clicks === 2 }">
 
 ```yaml {all|5|6|7|8-11}{maxHeight:'380px'}
-  topology:
-    version: 1.36.5
-    controlplane:
-      architecture: amd64
-      machineClass: small
-      provider: kubevirt
-      replicas: 1
-      storage:
+topology:
+  version: 1.36.5
+  controlplane:
+    architecture: amd64
+    machineClass: small
+    provider: kubevirt
+    replicas: 1
+    storage:
       - class: standard
         path: /var/lib/vitistack/kubevirt
         size: 20Gi
-      version: 1.36.5
+    version: 1.36.5
 ```
 
 </div>
 <div class="relative" :class="{ 'z-20': $clicks === 6 || $clicks === 7 }">
 
 ```yaml {all|3|10|11|12|14-17}{maxHeight:'380px'}
-    workers:
-      nodePools:
-      - name: workerpool
-        architecture: amd64
-        autoscaling:
-          enabled: false
-          minReplicas: 1
-          maxReplicas: 5
-          scalingRules: [cpu]
-        machineClass: medium
-        provider: kubevirt
-        replicas: 1
-        taint: []
-        storage:
+workers:
+  nodePools:
+    - name: workerpool
+      architecture: amd64
+      autoscaling:
+        enabled: false
+        minReplicas: 1
+        maxReplicas: 5
+        scalingRules: [cpu]
+      machineClass: medium
+      provider: kubevirt
+      replicas: 1
+      taint: []
+      storage:
         - class: standard
           path: /var/lib/vitistack/kubevirt
           size: 20Gi
-        version: 1.36.5
+      version: 1.36.5
 ```
 
 </div>
@@ -412,7 +428,6 @@ spec:
 
 </div>
 
-
 <!--
 - version: Kubernetes version for the cluster (and per pool)
 - machineClass: t-shirt sizes (small/medium) -> MachineClass CRD defines CPU/memory
@@ -426,27 +441,30 @@ spec:
 
 # 🚀 kubectl apply
 
-```bash
+<v-clicks>
 
+```bash
 # 1. k8s namespace
 kubectl create namespace team-cool
+```
 
+```bash
 # 2. Network 🌐
 kubectl apply -f manifests/networknamespace.yaml -n team-cool
 
 ⧗ wait for the network to be ready
+```
 
+```bash
 # 3. Then the cluster
 kubectl apply -f manifests/kubernetescluster.yaml -n team-cool
 ```
-
-<v-click>
 
 ```bash
 # Watch it come alive 👀
 watch -n 1 kubectl get networknamespace,kubernetescluster,machines -n team-cool
 ```
- 
+
 ```bash
 # Get kubeconfig for new cluster
 viti kc login -o=.
@@ -463,17 +481,13 @@ kubectl get nodes
 ```
 
 
-</v-click>
-
-<v-click>
-
-<div class="mt-6 text-center text-lg">
+<!-- <div class="mt-6 text-center text-lg">
 
 📄📄 Two YAML files → 🎉 a running Talos cluster with 1 control plane + 1 workers
 
-</div>
+</div> -->
 
-</v-click>
+</v-clicks>
 
 <!--
 Live demo here if possible.
@@ -503,7 +517,6 @@ class: text-center
 ---
 
 # 🐉 Tested at scale
-
 
 <v-clicks>
 
@@ -538,7 +551,7 @@ But also home lab:
   - Need of overview beyond regions
 - 🤔 What was hard …
   - Kubernetes knowledge mountain
-  - Golang programming 
+  - Golang programming
   - Integrations with custom parts
 
 </v-clicks>
