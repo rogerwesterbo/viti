@@ -613,3 +613,7 @@ class: text-center
 <div class="mt-10 opacity-80">
 👋 Roger Westerbø · ✉️ roger.westerbo@gmail.com
 </div>
+
+<div class="mt-10 opacity-80">
+See this presentation on <a href="https://viti.westerbo.no">https://viti.westerbo.no</a>
+</div>
