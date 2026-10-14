@@ -2,7 +2,7 @@
 
 # ---- build: render the Slidev deck to static files ----
 # Runs on the build host's native arch; the output is plain HTML/JS/CSS.
-FROM --platform=$BUILDPLATFORM node:22-alpine AS builder
+FROM --platform=$BUILDPLATFORM node:26-alpine AS builder
 WORKDIR /app
 
 # playwright-chromium is only needed for PDF export, not for `slidev build`
