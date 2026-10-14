@@ -50,8 +50,8 @@ Overview: who I am, what we'll cover today.
 
 - 🏗️ An **infrastructure platform** for running Kubernetes with many machine-providers and kubernetes-providers
 - 📜 Kubernetes clusters as **declarative resources** (CRDs)
+- 🤖 Built from **operators** — separation of concerns (Go, Kubebuilder)
 - 📦 General objects describing the environment and config of a platform
-- 🤖 Built from **operators** — each does one job well
 - 🔓 Open source building blocks
 - 🎯 Goals: cost-efficient, flexible, secure, interoperability, customizable, see what happens in the "magic" box
 
@@ -149,7 +149,7 @@ layout: section
 
 <div>
 
-<K8sLogo /> `KubernetesCluster`
+<K8sLogo /> `KubernetesCluster(s)`
 
 </div>
 
